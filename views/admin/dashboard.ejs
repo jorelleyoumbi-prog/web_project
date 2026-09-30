@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dashboard-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: #1f2937;
+      width: 250px;
+      padding: 20px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 1.5em;
+      color: #22c55e;
+    }
+
+    .sidebar a {
+      color: #d1d5db;
+      text-decoration: none;
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: #22c55e;
+      color: white;
+    }
+
+    /* Main */
+    .main-content {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .topbar h1 {
+      color: #1f2937;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card i {
+      font-size: 2em;
+      color: #22c55e;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 0;
+      color: #1f2937;
+    }
+
+    .logout-btn {
+      text-align: center;
+      background: #ef4444;
+      padding: 10px;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .logout-btn:hover {
+      background: #dc2626;
+    }
+  </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+  <div class="sidebar">
+    <div>
+      <h2>Admin Panel</h2>
+      <a href="/admin/dashboard"><i class="fa fa-home"></i> Dashboard</a>
+      <a href="/admin/users"><i class="fa fa-users"></i> Users</a>
+      <a href="/admin/menu"><i class="fa fa-utensils"></i> Menu</a>
+      <a href="/admin/reservations"><i class="fa fa-calendar"></i> Reservations</a>
+      <a href="/admin/reviews"><i class="fa fa-star"></i> Ricensioni</a>
+      <a href="/admin/orders"><i class="fa fa-star"></i> Ordini</a>
+    </div>
+    <a href="/auth/logout" class="logout-btn"><i class="fa fa-sign-out-alt"></i> Logout</a>
+  </div>
+
+  <div class="main-content">
+    <div class="topbar">
+      <h1>Bienvenue, <%= user.fullname %> !!!</h1>
+      <p><strong>Role :</strong> <%= user.role %></p>
+    </div>
+
+    <div class="stats">
+      <div class="card">
+        <i class="fa fa-users"></i>
+        <h3><%= stats.totalUsers %></h3>
+        <p>Utenti registrati</p>
+      </div>
+      <div class="card">
+        <i class="fa fa-calendar"></i>
+        <h3><%= stats.totalReservations %></h3>
+        <p>Riservazioni Totali</p>
+      </div>
+      <div class="card">
+        <i class="fa fa-utensils"></i>
+        <h3><%= stats.totalDishes %></h3>
+        <p>Piatti nel menu</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

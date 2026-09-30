@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Reviews - Cameroonian’s Food</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/css/review.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+  <%- include('partials/header') %>
+
+  <!-- Section review -->
+  <section class="review" id="review">
+    <h3 class="sub-heading">Customer's Review</h3>
+    <h1 class="heading">What They Say</h1>
+
+    <div class="review-wrap">
+      <!-- colonne gauche : formulaire -->
+      <div class="review-left">
+        <% if (error) { %><p class="error-msg"><%= error %></p><% } %>
+        <% if (success) { %><p class="success-msg"><%= success %></p><% } %>
+
+        <form action="/testimonial/add" method="POST" class="review-form">
+          <input type="text" name="fullname" placeholder="Your Name" required autocomplete="name" style="text-transform: none;">
+          <input type="email" name="email" placeholder="Your Email (optional)" autocomplete="email" style="text-transform: none;">
+          <textarea name="message" placeholder="Your review..." required autocomplete="message" style="text-transform:none;"></textarea>
+          <select name="rating" required>
+            <option value="">Choose Rating</option>
+            <% for(let i=1; i<=5; i++) { %>
+              <option value="<%= i %>"><%= i %> ⭐</option>
+            <% } %>
+          </select>
+          <button type="submit" class="btn">Submit Review</button>
+        </form>
+      </div>
+
+      <!-- colonne droite : slider -->
+      <div class="review-right">
+        <div class="swiper-container review-slider">
+          <div class="swiper-wrapper">
+
+            <% if (reviews && reviews.length > 0) { %>
+              <% reviews.forEach(r => { %>
+                <div class="swiper-slide slide">
+                  <i class="fas fa-quote-right"></i>
+                  <div class="user">
+                    <img src="/images/default-user.jpg" alt="User">
+                    <div class="user-info">
+                      <h3><%= r.fullname %></h3>
+                      <div class="stars">
+                        <% for (let i = 0; i < r.rating; i++) { %>
+                          <i class="fas fa-star"></i>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+                  <p><%= r.message %></p>
+                </div>
+              <% }) %>
+            <% } else { %>
+              <div class="swiper-slide slide">
+                <p style="text-align:center; color:#666;">No reviews yet. Be the first to leave one!</p>
+              </div>
+            <% } %>
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>

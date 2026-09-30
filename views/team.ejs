@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet"  href="style.css">
+    <!--link pour le swipe sulla home-->
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <title>Cameroonian's Food</title>
+    <!--font awesome cdn link -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<!--sezione header-->
+<%- include('partials/header') %>
+
+<!--search form-->
+
+<form action="" id="search-form">
+    <input type="search" placeholder="search here..." name="" id="search-box">
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close"></i>
+</form>
+
+
+<!--section review-->
+<section class="team" id="team">
+    <h3 class="sub-heading"> Our Team</h3>
+    <h1 class="heading">who are they?</h1>
+    
+    <div class="swiper-container review-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src=" " alt="">
+                    <div class="user-info">
+                        <h3>Jorelle Youmbi</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p>Fondatrice di Cameroonian's Food.Nata in Camerun nel 2003 diplomata dalla Food Genuis Academy di Milano nel 2021. Doppia laurea magistrale  nella scuole Food Genuis Academy di Milano ed la scuola chef d'eccelenza di Milano.  </p>
+            </div>
+               
+            <div class="swiper-slide slide">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src=" " alt="">
+                    <div class="user-info">
+                        <h3>Jorelle Youmbi</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p>Laureata dall'università del piemonte orientale con 110 e Lode nel settore dell'albergherio e ristorazione  </p>
+            </div>
+            
+            <div class="swiper-slide slide">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src=" " alt="">
+                    <div class="user-info">
+                        <h3>Jorelle Youmbi</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p> Laurea in gastronomia presso l'università di Yaoundé 1- Camerun nel 2024 </p>
+            </div>
+
+            <div class="swiper-slide slide">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src=" " alt="">
+                    <div class="user-info">
+                        <h3>Jorelle Youmbi</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p>Laurea triennale dalla Food Genuis Academy di Milano nel 2021 con 99/110</p>
+            </div>
+            <div class="swiper-slide slide">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src=" " alt="">
+                    <div class="user-info">
+                        <h3>Jorelle Youmbi</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p> Ci fa pensare alla cultura africana.Il servizio è efficace ed il ristorante propone una bella varietà dei piatti!!</p>
+            </div>
+            
+            <div class="swiper-slide slide">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src=" " alt="">
+                    <div class="user-info">
+                        <h3>Jorelle Youmbi</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p> Ci fa pensare alla cultura africana.Il servizio è efficace ed il ristorante propone una bella varietà dei piatti!!</p>
+            </div>
+            
+
+        </div>
+    </div>
+
+</section>
+
+<!--contacts section-->
+<%- include('partials/footer') %>
+<!--custom js file link-->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

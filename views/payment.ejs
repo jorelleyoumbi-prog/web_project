@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento</title>
+  <link rel="stylesheet" href="/css/cart.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <section class="payment">
+    <h1>Pagamento dell'ordine #<%= order.id %></h1>
+    <p>Piatto: <strong><%= order.dish_name %></strong></p>
+    <p>Quantità: <strong><%= order.quantity %></strong></p>
+    <p>Prezzo unitario: €<%= order.price.toFixed(2) %></p>
+    <h2>Totale: €<%= order.total.toFixed(2) %></h2>
+
+    <form action="/payment/<%= order.id %>/confirm" method="POST">
+      <button type="submit" class="btn-pay">Paga ora</button>
+    </form>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
+

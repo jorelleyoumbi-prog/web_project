@@ -1,0 +1,116 @@
+<header class="admin-header">
+  <div class="admin-nav-container">
+    <h2 class="logo">Admin Panel</h2>
+
+    <button id="menu-toggle" class="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="admin-nav" id="admin-nav">
+      <a href="/admin/dashboard">Dashboard</a>
+      <a href="/admin/users">Utenti</a>
+      <a href="/admin/menu">Menu</a>
+      <a href="/admin/reservations">Reservations</a>
+      <a href="/admin/reviews">Recensioni</a>
+      <a href="/admin/orders">Ordini</a>
+      <a href="/">Torna al sito</a>
+      <a href="/auth/logout" class="logout">Logout</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+/* === HEADER ADMIN === */
+.admin-header {
+  background-color: #1b4332;
+  color: white;
+  padding: 12px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.admin-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-header .logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.admin-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.admin-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.admin-nav a:hover {
+  color: #95d5b2;
+}
+
+.logout {
+  color: #ffd6a5;
+  font-weight: bold;
+}
+
+/* === Menu burger (mobile) === */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* === Responsivité === */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .admin-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #1b4332;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .admin-nav.active {
+    display: flex;
+  }
+
+  .admin-nav a {
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("admin-nav");
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+      });
+    }
+  });
+</script>

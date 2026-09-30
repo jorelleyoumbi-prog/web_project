@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel ="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <title>Gestione Utenti</title>
+  <style>
+    table {
+      width: 90%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    th {
+      background-color: #2d6a4f;
+      color: white;
+    }
+
+    .btn {
+      background: #1b4332;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #40916c;
+    }
+
+    .add-form {
+      width: 90%;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: #f8f9fa;
+    }
+
+    .add-form input, .add-form select {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: calc(25% - 22px);
+    }
+
+    .edit-form input, .edit-form select {
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 90%;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .edit-btn {
+      background: #f4a261;
+      color: white;
+    }
+
+    .delete-btn {
+      background: #d62828;
+      color: white;
+    }
+
+    .success-msg {
+      color: #2e7d32;
+      text-align: center;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .error-msg {
+      color: red;
+      text-align: center;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <%- include("../partials/admin-header") %>
+
+
+  <section class="admin">
+    <h1 class="heading">Gestione Utenti</h1>
+
+    <% if (error) { %><p class="error-msg"><%= error %></p><% } %>
+    <% if (success) { %><p class="success-msg"><%= success %></p><% } %>
+
+    <!-- === FORMULAIRE D'AJOUT === -->
+    <div class="add-form">
+      <h3>Aggiungere un utente</h3>
+      <form action="/admin/users/add" method="POST">
+        <input type="text" name="fullname" placeholder="Fullname" required>
+        <input type="email" name="email" placeholder="Email" required style="text-transform:none">
+        <input type="tel" name="phone" placeholder="phone" required>
+        <input type="password" name="password" placeholder="password" required>
+        <select name="role">
+          <option value="client">Client</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button type="submit" class="btn">Add</button>
+      </form>
+    </div>
+
+    <!-- === TABLE UTILISATEURS === -->
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Tel</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+
+      <% users.forEach(u => { %>
+        <tr>
+          <td><%= u.id %></td>
+          <td><%= u.fullname %></td>
+          <td><%= u.email %></td>
+          <td><%= u.phone %></td>
+          <td><%= u.role %></td>
+          <td class="actions">
+            <% if (u.role !== 'admin') { %>
+              <!-- Formulaire rapide de modification inline -->
+              <form class="edit-form" action="/admin/users/edit/<%= u.id %>" method="POST">
+                <input type="text" name="fullname" value="<%= u.fullname %>" required>
+                <input type="email" name="email" value="<%= u.email %>" required style="text-transform:none">
+                <input type="tel" name="phone" value="<%= u.phone %>" required>
+                <select name="role">
+                  <option value="client" <%= u.role === 'client' ? 'selected' : '' %>>Client</option>
+                  <option value="admin" <%= u.role === 'admin' ? 'selected' : '' %>>Admin</option>
+                </select>
+                <button type="submit" class="btn edit-btn"><i class="fas fa-edit"></i></button>
+              </form>
+
+              <!-- Bouton suppression -->
+              <form method="POST" action="/admin/users/delete/<%= u.id %>" onsubmit="return confirm('Delete this user ?');">
+                <button type="submit" class="btn delete-btn"><i class="fas fa-trash"></i></button>
+              </form>
+            <% } else { %>
+              <em>Admin</em>
+            <% } %>
+          </td>
+        </tr>
+      <% }) %>
+    </table>
+  </section>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>

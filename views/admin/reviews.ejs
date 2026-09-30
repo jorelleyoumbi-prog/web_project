@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Gestione delle Recensioni</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #f8f9fa; margin: 0; }
+    section { padding: 40px; }
+    h1 { color: #333; text-align: center; margin-bottom: 30px; }
+    table { width: 90%; margin: 0 auto; border-collapse: collapse; background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+    th, td { padding: 12px; text-align: center; border-bottom: 1px solid #ddd; }
+    th { background-color: #22c55e; color: white; }
+    tr:hover { background-color: #f1f1f1; }
+    .btn-delete {
+      background-color: #dc2626;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .btn-delete:hover { background-color: #b91c1c; }
+  </style>
+</head>
+<body>
+  <%- include("../partials/admin-header") %>
+
+  <section>
+    <h1>Gestione delle Ricensioni</h1>
+
+    <% if (reviews && reviews.length > 0) { %>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Nome Utente</th>
+          <th>Email</th>
+          <th>Rate</th>
+          <th>Message</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+
+        <% reviews.forEach(r => { %>
+          <tr>
+            <td><%= r.id %></td>
+            <td><%= r.name %></td>
+            <td><%= r.email || 'N/A' %></td>
+            <td>
+              <% for(let i = 0; i < r.rating; i++) { %>
+                <i class="fas fa-star" style="color:gold;"></i>
+              <% } %>
+            </td>
+            <td><%= r.message %></td>
+            <td><%= r.created_at.toISOString().slice(0,10) %></td>
+            <td>
+              <form action="/admin/reviews/delete/<%= r.id %>" method="POST" onsubmit="return confirm('Delete this review  ?');">
+                <button type="submit" class="btn-delete">Supprimer</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </table>
+    <% } else { %>
+      <p style="text-align:center; color:#777;">Nessuna recensione registrata.</p>
+    <% } %>
+  </section>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>

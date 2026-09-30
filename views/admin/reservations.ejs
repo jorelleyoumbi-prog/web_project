@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestione Riservazioni</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+    }
+
+    section {
+      padding: 40px;
+    }
+
+    h1 {
+      color: #1b4332;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      text-transform: uppercase;
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .search-bar input {
+      width: 300px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .search-bar button {
+      background: #22c55e;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: 0.3s;
+    }
+
+    .search-bar button:hover {
+      background: #15803d;
+    }
+
+    table {
+      width: 95%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #22c55e;
+      color: white;
+      text-transform: uppercase;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    input[type="text"], input[type="number"], input[type="date"], input[type="time"], select {
+      width: 90%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+      font-weight: 500;
+    }
+
+    .btn-edit {
+      background-color: #3b82f6;
+    }
+
+    .btn-edit:hover {
+      background-color: #1e40af;
+    }
+
+    .btn-delete {
+      background-color: #ef4444;
+    }
+
+    .btn-delete:hover {
+      background-color: #991b1b;
+    }
+
+    .error-msg, .success-msg {
+      text-align: center;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .error-msg { color: red; }
+    .success-msg { color: green; }
+
+  </style>
+</head>
+
+<body>
+
+  <%- include("../partials/admin-header") %>
+
+  <section>
+    <h1> Gestione delle Riservazioni</h1>
+
+    <% if (error) { %>
+      <p class="error-msg"><%= error %></p>
+    <% } %>
+    <% if (success) { %>
+      <p class="success-msg"><%= success %></p>
+    <% } %>
+
+    <!-- barre di ricerca-->
+    <form method="GET" action="/admin/reservations" class="search-bar">
+      <input type="text" name="search" placeholder="Cerca per nome, email o telefono" value="<%= search || '' %>">
+      <button type="submit"><i class="fa fa-search"></i> Cerca</button>
+    </form>
+
+    <% if (reservations && reservations.length > 0) { %>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Telefono</th>
+          <th>Persone</th>
+          <th>Data</th>
+          <th>Ora</th>
+          <th>Status</th>
+          <th>Azioni</th>
+        </tr>
+
+        <% reservations.forEach(r => { %>
+          <tr>
+            <form method="POST" action="/admin/reservations/edit/<%= r.id %>">
+              <td><%= r.id %></td>
+              <td><input type="text" name="fullname" value="<%= r.fullname %>"></td>
+              <td><input type="text" name="email" value="<%= r.email %>"></td>
+              <td><input type="text" name="phone" value="<%= r.phone %>"></td>
+              <td><input type="number" name="num_persons" value="<%= r.num_persons %>" min="1"></td>
+              <td><input type="date" name="date" value="<%= r.date.toISOString().slice(0,10) %>"></td>
+              <td><input type="time" name="time" value="<%= r.time %>"></td>
+              <td>
+                <select name="status">
+                  <option value="pending" <%= r.status === 'pending' ? 'selected' : '' %>>In Attesa</option>
+                  <option value="confirmed" <%= r.status === 'confirmed' ? 'selected' : '' %>>Confermata</option>
+                  <option value="cancelled" <%= r.status === 'cancelled' ? 'selected' : '' %>>Annullata</option>
+                </select>
+              </td>
+              <td>
+                <button type="submit" class="btn btn-edit"><i class="fa fa-save"></i></button>
+            </form>
+            <form method="POST" action="/admin/reservations/delete/<%= r.id %>" onsubmit="return confirm('Vuoi davvero eliminare questa riservazione?')" style="display:inline;">
+                <button type="submit" class="btn btn-delete"><i class="fa fa-trash"></i></button>
+            </form>
+              </td>
+          </tr>
+        <% }) %>
+      </table>
+    <% } else { %>
+      <p style="text-align:center; color:#777;">Nessuna riservazione trovata.</p>
+    <% } %>
+  </section>
+
+  <%- include("../partials/footer") %>
+
+</body>
+</html>

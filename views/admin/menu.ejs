@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Gestion du Menu</title>
+  <style>
+    table {
+      width: 90%;
+      margin: 30px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: #2d6a4f;
+      color: white;
+    }
+    .btn {
+      background: #1b4332;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #40916c;
+    }
+    .delete-btn {
+      background: #d62828;
+    }
+    .delete-btn:hover {
+      background: #a4161a;
+    }
+    .add-form {
+      margin: 20px auto;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      width: 90%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .add-form input, .add-form textarea, .add-form select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      flex: 1 1 200px;
+    }
+    .success-msg {
+      text-align: center;
+      color: green;
+      font-weight: bold;
+    }
+    .error-msg {
+      text-align: center;
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <%- include("../partials/admin-header") %>
+
+
+  <section class="admin">
+    <h1 class="heading"> Gestione  Menu</h1>
+
+    <% if (error) { %><p class="error-msg"><%= error %></p><% } %>
+    <% if (success) { %><p class="success-msg"><%= success %></p><% } %>
+
+    <!-- FORMULAIRE AJOUT -->
+    <form action="/admin/menu/add" method="POST" class="add-form">
+      <input type="text" name="name" placeholder="Nom du plat" required>
+      <input type="number" step="0.01" name="price" placeholder="price (€)" required>
+      <input type="text" name="image" placeholder="URL de l’image">
+      <button type="submit" class="btn">Aggiungi un piatto</button>
+    </form>
+
+    <!-- TABLE DES PLATS -->
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price (€)</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+
+      <% menu.forEach(plat => { %>
+        <tr>
+          <form action="/admin/menu/edit/<%= plat.id %>" method="POST">
+            <td><%= plat.id %></td>
+            <td><input type="text" name="name" value="<%= plat.name %>"></td>
+            <td><input type="number" step="0.01" name="price" value="<%= plat.price %>"></td>
+            <td><input type="text" name="image" value="<%= plat.image %>"></td>
+            <td>
+              <button type="submit" class="btn">Edit</button>
+          </form>
+          <form action="/admin/menu/delete/<%= plat.id %>" method="POST" onsubmit="return confirm('Supprimer ce plat ?');">
+              <button type="submit" class="btn delete-btn">Delete</button>
+          </form>
+            </td>
+        </tr>
+      <% }) %>
+    </table>
+  </section>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>

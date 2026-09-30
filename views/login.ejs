@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet"  href="/style.css">
+    <!--link pour le swipe sulla home-->
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <title>Cameroonian's Food</title>
+    <!--font awesome cdn link -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<!--sezione header-->
+<%- include('partials/header') %>
+<!--search form-->
+
+<form action="" id="search-form">
+    <input type="search" placeholder="search here..." name="" id="search-box">
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close"></i>
+</form>
+
+<section class="login">
+    <h3 class="sub-heading">Welcome Back</h3>
+    <h1 class="heading">Login</h1>
+
+    <% if (error) { %>
+        <p style="color:red; text-align:center;"><%= error %> </p>
+    <% } %>
+
+    <form action="/auth/login" method="POST" class="login-form">
+        <div class="inputBox">
+            <span>Email</span>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required autocomplete="email" style="text-transform: none;">
+        </div>
+
+        <div class="inputBox">
+         <div class="input password-box">
+           <span><i class="fas fa-lock"></i> Password</span>
+            <div class="password-container">
+                <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password" style="text-transform:none">
+                <span class="toggle-password" onclick="togglePassword('password', this)">
+                   <i class="fa-solid fa-eye"></i>
+                </span>
+            </div>
+        </div>
+
+        <input type="submit" value="Log In" class="btn">
+
+        <p class="form-footer">Not registered yet? 
+            <a href="/auth/register">Create an account</a>
+        </p>
+    </form>
+</section>
+
+<!--contacts section-->
+<%- include('partials/footer') %>
+<!--custom js file link-->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="/script.js"></script>
+<script>
+function togglePassword(id, icon) {
+    const input = document.getElementById(id);
+    const eye = icon.querySelector('i');
+    if (input.type === 'password') {
+        input.type = 'text';
+        eye.classList.remove('fa-eye');
+        eye.classList.add('fa-eye-slash');
+    } else {
+        input.type = 'password';
+        eye.classList.remove('fa-eye-slash');
+        eye.classList.add('fa-eye');
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Il tuo carrello</title>
+  <link rel="stylesheet" href="/css/cart.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <section class="cart">
+    <h1 class="heading">Il tuo carrello</h1>
+
+    <% if (orders.length === 0) { %>
+      <p class="empty">Nessun ordine nel carrello.</p>
+    <% } else { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Immagine</th>
+            <th>Piatti</th>
+            <th>Quantità</th>
+            <th>Prezzo unitario</th>
+            <th>Totale</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let total = 0; %>
+          <% orders.forEach(o => { 
+              const subtotal = o.price * o.quantity;
+              total += subtotal;
+          %>
+            <tr>
+              <td><img src="<%= o.image_url %>" alt="<%= o.dish_name %>"></td>
+              <td><%= o.dish_name %></td>
+              <td><%= o.quantity %></td>
+              <td>€<%= o.price.toFixed(2) %></td>
+              <td>€<%= subtotal.toFixed(2) %></td>
+              <td>
+                <form action="/orders/delete/<%= o.id %>" method="POST">
+                  <button type="submit" class="btn-delete"><i class="fa fa-trash"></i></button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <div class="cart-total">
+        <h2>Totale: €<%= total.toFixed(2) %></h2>
+        <form action="/orders/confirm" method="POST">
+          <button type="submit" class="btn-pay">Paga adesso 💳</button>
+        </form>
+      </div>
+    <% } %>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

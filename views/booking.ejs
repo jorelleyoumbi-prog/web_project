@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet"  href="style.css">
+    <!--link pour le swipe sulla home-->
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <title>Cameroonian's Food</title>
+    <!--font awesome cdn link -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<!--sezione header-->
+<%- include('partials/header') %>
+
+<!--search form-->
+
+<form action="" id="search-form">
+    <input type="search" placeholder="search here..." name="" id="search-box">
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close"></i>
+</form>
+
+<section class="book" id="book">
+  <h3 class="sub-heading">Book Now</h3>
+  <h1 class="heading">Book A Table</h1>
+
+  <% if (user) { %>
+  <form action="/booking" method="POST" id="book-form" class="book-form">
+    <div class="inputBox">
+      <div class="input">
+        <span>Full name</span>
+        <input type="text" name="fullname" value="<%= user.fullname %>"  required autocomplete="name" style="text-transform:none">
+      </div>
+      <div class="input">
+        <span>Email</span>
+        <input type="email" name="email" value="<%= user.email %>" required autocomplete="email" style="text-transform:none">
+      </div>
+    </div>
+
+    <div class="inputBox">
+      <div class="input">
+        <span>Telephone</span>
+        <input type="tel" name="phone" value="<%= user.phone %>" required>
+      </div>
+      <div class="input">
+        <span>Number of Persons</span>
+        <input type="number" name="num_persons" placeholder="Ex: 4" min="1" required>
+      </div>
+    </div>
+
+    <div class="inputBox">
+      <div class="input">
+        <span>Date</span>
+        <input type="date" name="date" required>
+      </div>
+      <div class="input">
+        <span>Hour</span>
+        <input type="time" name="time" required>
+      </div>
+    </div>
+
+    <input type="submit" value="Book Now" class="btn">
+  </form>
+  <% } else { %>
+    <p class="warning">You must be logged in to make a reservation.</p>
+    <a href="/auth/login" class="btn">Log in</a>
+  <% } %>
+
+  <% if (typeof success !== 'undefined') { %>
+    <p id="confirmation-message" class="confirmation-message" style="color:green;"><%= success %></p>
+  <% } %>
+</section>
+
+
+<!--contacts section-->
+<%- include('partials/footer') %>
+
+<!--custom js file link-->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

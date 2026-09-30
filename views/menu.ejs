@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet"  href="style.css">
+    <!--link pour le swipe sulla home-->
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <title>Cameroonian's Food</title>
+    <!--font awesome cdn link -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<!--sezione header-->
+<%- include('partials/header') %>
+<!--search form-->
+
+<form action="" id="search-form">
+    <input type="search" placeholder="search here..." name="" id="search-box">
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close"></i>
+</form>
+
+
+
+<!--Section Menu-->
+
+<section class="menu" id="menu">
+    <h3 class="sub-heading">Menu</h3>
+    <h1 class="heading">Our Today's Menu</h1>
+
+    <div class="box-container">
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/pouket-curry.jpg" alt="">
+            <h3>Poulet aux curry </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="/servizi?dish=Poulet%20aux%20curry" class="btn">Add to Cart</a>
+
+
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/riz-ndolè.jpg" alt="">
+            <h3>Riz Ndolé </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€20.00</span>
+            <a href="/servizi?dish=Riz%20Ndolé" class="btn">Add to Cart</a>
+
+
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/14.jpg" alt="">
+            <h3>Brochettes de viandes </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€10.00</span>
+            <a href="/servizi?dish=Brochettes%20de%20viandes" class="btn">Add to Cart</a>
+
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/07.jpg" alt="">
+            <h3>Poulet& Galettes </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="/servizi?dish=Poulet%20et%20Galettes" class="btn">Add to Cart</a>
+
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/19.jpg" alt="">
+            <h3>Sauce Gombo</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="/servizi?dish=Sauce%20Gombo" class="btn">Add to Cart</a>
+
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/02-2.jpg" alt="">
+            <h3>Attieké </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="/servizi?dish=Attieké" class="btn">Add to Cart</a>
+
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/haricots-oeufs.jpg" alt="">
+            <h3>Riz haricots  </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="/servizi?dish=Riz%20haricots" class="btn">Add to Cart</a>
+
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/poulet-haricots.jpg" alt="">
+            <h3>Emincés de poulet & haricots blancs </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="/servizi?dish=Emincés%20de%20poulet%20et%20haricots%20blancs" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/poulet-sauce-moutarde.jpg" alt="">
+            <h3>Poulet à la sauce moutarde </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="/servizi?dish=Poulet%20à%20la%20sauce%20moutarde" class="btn">Add to Cart</a>
+
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/08.jpg" alt="">
+            <h3>Attieké </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="/servizi?dish=Attieké" class="btn">Add to Cart</a>
+
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/food.jpg" alt="">
+            <h3>Boulettes-poulets-Spaghettis </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="/servizi?dish=Boulettes-poulets-Spaghettis" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/04-1.jpg" alt="">
+            <h3>Riz aux aubergines </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="/servizi?dish=Riz%20aux%20aubergines" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/fraise.jpg" alt="">
+            <h3>Jus de Fraise </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€5.00</span>
+            <a href="/servizi?dish=Jus%20de%20Fraise" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/raisin.jpg" alt="">
+            <h3>Jus de raisin </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€5.00</span>
+            <a href="/servizi?dish=Jus%20de%20raisin" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/coco.jpg" alt="">
+            <h3>Jus de coco </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€5.00</span>
+            <a href="/servizi?dish=Jus%20de%20coco" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/cocktail.jpg" alt="">
+            <h3>Boisson alcoolisé à l'orange</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€5.00</span>
+            <<a href="/servizi?dish=Boisson%20alcoolisée%20à%20l'orange" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/citron.jpg" alt="">
+            <h3>Cocktail de citron et d'orange </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€5.00</span>
+            <a href="/servizi?dish=Cocktail%20de%20citron%20et%20d'orange" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/rhum.jpg" alt="">
+            <h3>Vodka </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€45.00</span>
+            <a href="/servizi?dish=Vodka" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/orange.jpg" alt="">
+            <h3>Cocktail d'orange et de cérise </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€5.00</span>
+            <a href="/servizi?dish=Cocktail%20d'orange%20et%20de%20cerise" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/alcool.jpg" alt="">
+            <h3>Cocktail alcoolisé </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+           <a href="/servizi?dish=Cocktail%20alcoolisé" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/cocktail_italien.jpg" alt="">
+            <h3>Cocktail Italien  </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="/servizi?dish=Cocktail%20Italien" class="btn">Add to Cart</a>
+        </div> 
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/ceriseee.jpg" alt="">
+            <h3>Jus de cérise </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="/servizi?dish=Jus%20de%20cerise" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/kiwi.jpg" alt="">
+            <h3>Cocktail de fruits de kiwi </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="/servizi?dish=Cocktail%20de%20fruits%20de%20kiwi" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/paradisiaque.jpg" alt="">
+            <h3>Mojito</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="/servizi?dish=Mojito" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/tartes-aux-profiteroles.jpg" alt="">
+            <h3>Tarte Aux Profiteroles Cremé </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€10.00</span>
+            <a href="/servizi?dish=Tarte%20Aux%20Profiteroles%20Cremé" class="btn">Add to Cart</a>
+        </div>  
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/gateau-cacao.jpg" alt="">
+            <h3>Gateau Au cacao soupoudré au Café </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€10.00</span>
+            <a href="/servizi?dish=Gateau%20Au%20cacao%20soupoudré%20au%20Café" class="btn">Add to Cart</a>
+        </div> 
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/gateau-chocolat-framboise.jpg" alt="">
+            <h3>Gateau Au Chocolat Framboises </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€10.00</span>
+            <a href="/servizi?dish=Gateau%20Au%20Chocolat%20Framboises" class="btn">Add to Cart</a>
+        </div> 
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/gateau-chocolat-biscuit.jpg" alt="">
+            <h3>Gateau Au chocolat-Biscuit-Raisins </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€10.00</span>
+            <a href="/servizi?dish=Gateau%20Au%20Chocolat-Biscuit-Raisins" class="btn">Add to Cart</a>
+        </div>   
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/gateau-chocolat-biscuit.jpg" alt="">
+            <h3>Gateau Au chocolat-Biscuit-Raisins </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€10.00</span>
+            <a href="#" class="btn">add to cart</a>
+        </div>   
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/gateau-chocolat-biscuit.jpg" alt="">
+            <h3>Gateau Au chocolat-Biscuit-Raisins </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€10.00</span>
+            <a href="/servizi?dish=Gateau%20Au%20chocolat-Biscuit-Raisins" class="btn">Add to Cart</a>
+        </div>    
+    </div> 
+</section>
+
+
+
+
+<!--contacts section-->
+<%- include('partials/footer') %>
+<!--custom js file link-->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

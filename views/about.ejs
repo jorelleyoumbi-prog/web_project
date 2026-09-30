@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet"  href="style.css">
+    <!--link pour le swipe sulla home-->
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <title>Cameroonian's Food</title>
+    <!--font awesome cdn link -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<!--sezione header-->
+<%- include('partials/header') %>
+<!--search form-->
+
+<form action="" id="search-form">
+    <input type="search" placeholder="search here..." name="" id="search-box">
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close"></i>
+</form>
+
+
+<!--about section -->
+<section class="about" id="about">
+    <h3 class="sub-heading">About Us</h3>
+    <h1 class="heading">Why choose us?</h1>
+    
+    <div class="row">
+        <div class="image">
+            <img src="image/beef take.jpg" alt="">
+        </div>
+        <div class="content">
+            <h3>The best food in the country</h3>
+            <p>Chi siamo</p>
+            <p>Da Cameroonian's Food, la passione per la cucina incontra l'autenticità dei sapori africani. Ogni piatto racconta una storia, un viaggio attraverso tradizioni culinarie ricche e colorate. Utilizziamo ingredienti freschi e genuini per offrirti un'esperienza unica, fatta di gusto, calore e convivialità. Scopri con noi il vero piacere della buona tavola, dove ogni morso è un invito a viaggiare.</p>
+            <p>
+                La passione per la cucina è nata sin dalla mia infanzia, trascorsa tra i profumi e i sapori autentici della tradizione camerunese. 
+                Fin da piccola, ammiravo mia madre e mia nonna preparare piatti deliziosi con amore e dedizione. 
+                Crescendo, questo amore per il cibo si è trasformato in un vero e proprio sogno: condividere la nostra cultura culinaria con il mondo. 
+                Così è nato "Cameroonian's Food", un progetto che unisce tradizione, innovazione e tanta passione.
+            </p>
+            <div class="icons-container">
+                <div class="icons">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span> free delivery</span>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span> easy payments</span>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-headset"></i>
+                    <span> 24/7</span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+</section>
+
+<!--contacts section-->
+<%- include('partials/footer') %>
+
+<!--custom js file link-->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet"  href="style.css">
+    <!--link pour le swipe sulla home-->
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <title>Cameroonian's Food</title>
+    <!--font awesome cdn link -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+   
+  <%- include('partials/header') %>
+
+  <!--search form-->
+
+  <form action="" id="search-form">
+    <input type="search" placeholder="search here..." name="" id="search-box">
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close"></i>
+  </form>
+
+  <!--home section-->
+  <section class="home" id="home">
+   <div class="swiper-container home-slider">
+    <div class="swiper-wrapper ">
+        <div class="swiper-slide slide">
+            <div class="content">
+                <span>Solo piatti deliziosi </span>
+                <h3>Riz sauce mouarde algérienne</h3>
+                <p>Riz sauce mouarde algérienne à base de poulet</p>
+                <a href="/servizi" class="btn">Ordina</a>              
+            </div>
+            <div class="image">
+                <img src="image/riz à la sauce mouarde.jpg" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide slide">
+            <div class="content">
+                <span>Solo piatti deliziosi </span>
+                <h3>Salade de riz</h3>
+                <p>Salade de riz au polit et aux lettus</p>
+                <a href="#" class="btn">Ordina</a>              
+            </div>
+            <div class="image">
+                <img src="image/salade-de-riz.jpg" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide slide">
+            <div class="content">
+                <span>Solo piatti deliziosi </span>
+                <h3>Riz à la sauce oignons</h3>
+                <p>Riz à la sauce oignons </p>
+                <a href="#" class="btn">Ordina</a>              
+            </div>
+            <div class="image">
+                <img src="image/10.jpg" alt="">
+            </div>
+        </div>
+        <div class="swiper-slide slide">
+            <div class="content">
+                <span>Solo piatti deliziosi </span>
+                <h3>Couscous marocain</h3>
+                <p>Couscous inspiré de la culture marocaine</p>
+                <a href="#" class="btn">Ordina</a>              
+            </div>
+            <div class="image">
+                <img src="image/couscous-marocain.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+   </div>
+  </section>
+
+  <!--Section Menu-->
+
+  <section class="menu" id="menu">
+    <h3 class="sub-heading">Menu</h3>
+    <h1 class="heading">Our Today's Menu</h1>
+
+    <div class="box-container">
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/pouket-curry.jpg" alt="">
+            <h3>Poulet aux curry </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/riz-ndolè.jpg" alt="">
+            <h3>Riz Ndolé </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€20.00</span>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/14.jpg" alt="">
+            <h3>Brochettes de viandes </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€10.00</span>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/07.jpg" alt="">
+            <h3>Poulet& Galettes </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/19.jpg" alt="">
+            <h3>Sauce Gombo</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+        <div class="box">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-eye"></a>
+            <img src="image/02-2.jpg" alt="">
+            <h3>Attieké </h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>€15.00</span>
+            <a href="#" class="btn">add to cart</a>
+        </div>  
+    </div>
+    <div class="load-more">
+        <a href="/menu" class="btn">Voir plus</a>
+    </div>
+    
+  </section>
+
+  <!--about section -->
+  <section class="about" id="about">
+    <h3 class="sub-heading">About Us</h3>
+    <h1 class="heading">Why choose us?</h1>
+    
+    <div class="row">
+        <div class="image">
+            <img src="image/beef take.jpg" alt="">
+        </div>
+        <div class="content">
+            <h3>The best food in the country</h3>
+            <p>Chi siamo</p>
+            <p>Da Cameroonian's Food, la passione per la cucina incontra l'autenticità dei sapori africani. Ogni piatto racconta una storia, un viaggio attraverso tradizioni culinarie ricche e colorate. Utilizziamo ingredienti freschi e genuini per offrirti un'esperienza unica, fatta di gusto, calore e convivialità. Scopri con noi il vero piacere della buona tavola, dove ogni morso è un invito a viaggiare.</p>
+            <div class="icons-container">
+                <div class="icons">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span> free delivery</span>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span> easy payments</span>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-headset"></i>
+                    <span> 24/7</span>
+                </div>
+            </div>
+            <a href="/about" class="btn">Learn more</a>
+        </div>
+    </div>
+    
+  </section>
+
+  <!--section review-->
+  <section class="review" id="review">
+    <h3 class="sub-heading">Customer's review</h3>
+    <h1 class="heading">what they say</h1>
+    
+    <div class="swiper-container review-slider">
+
+        <div class="swiper-wrapper">
+               
+            <div class="swiper-slide slide">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src=" " alt="">
+                    <div class="user-info">
+                        <h3>Jorelle Youmbi</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p> Ristorante molto accolgliente e servizio rapido ed efficace!!!Lo racomando</p>
+            </div>
+            
+            <div class="swiper-slide slide">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src=" " alt="">
+                    <div class="user-info">
+                        <h3>Jorelle Youmbi</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p> Spazio pulito e piatti deliziosi </p>
+            </div>
+
+            <div class="swiper-slide slide">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src=" " alt="">
+                    <div class="user-info">
+                        <h3>Jorelle Youmbi</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p> Ci fa pensare alla cultura africana.Il servizio è efficace ed il ristorante propone una bella varietà dei piatti!!</p>
+            </div>
+            <div class="swiper-slide slide">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src=" " alt="">
+                    <div class="user-info">
+                        <h3>Jorelle Youmbi</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p> Ci fa pensare alla cultura africana.Il servizio è efficace ed il ristorante propone una bella varietà dei piatti!!</p>
+            </div>
+            
+            <div class="swiper-slide slide">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src=" " alt="">
+                    <div class="user-info">
+                        <h3>Jorelle Youmbi</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p> Ci fa pensare alla cultura africana.Il servizio è efficace ed il ristorante propone una bella varietà dei piatti!!</p>
+            </div>
+            
+            <div class="swiper-slide slide">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src=" " alt="">
+                    <div class="user-info">
+                        <h3>Jorelle Youmbi</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p> Ci fa pensare alla cultura africana.Il servizio è efficace ed il ristorante propone una bella varietà dei piatti!!</p>
+            </div>
+
+
+        </div>
+    </div>
+
+  </section>
+
+  <%- include('partials/footer') %>
+
+  <!--custom js file link-->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

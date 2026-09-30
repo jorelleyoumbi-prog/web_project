@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Success - Cameroonian’s Food</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/cart.css">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    /* --- STYLE PAYMENT SUCCESS --- */
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f9fafc;
+      margin: 0;
+      padding: 0;
+    }
+
+    section.success {
+      text-align: center;
+      padding: 8rem 2rem;
+      background: linear-gradient(135deg, #27ae60, #2ecc71);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .success i {
+      font-size: 6rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      animation: pop 0.5s ease-out;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0); opacity: 0; }
+      80% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    .success h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .success p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-home {
+      background: white;
+      color: #27ae60;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn-home:hover {
+      background: #27ae60;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+      .success h1 {
+        font-size: 2rem;
+      }
+      .success p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <%- include('partials/header') %>
+
+  <section class="success">
+    <i class="fa-solid fa-circle-check"></i>
+    <h1>Payment Completed Successfully!</h1>
+    <p>Thank you <%= user ? user.fullname : 'dear customer' %> for your order.</p>
+    <a href="/menu" class="btn-home"><i class="fa-solid fa-utensils"></i> Back to Menu</a>
+  </section>
+
+  <%- include('partials/footer') %>
+
+</body>
+</html>

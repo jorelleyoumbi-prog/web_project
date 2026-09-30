@@ -1,0 +1,75 @@
+.cart {
+  padding: 6rem 2rem;
+  font-family: "Nunito", sans-serif;
+  background: #fafafa;
+  min-height: 100vh;
+}
+
+.heading {
+  text-align: center;
+  color: #192a56;
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+}
+
+table {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+th, td {
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 1.4rem;
+}
+
+thead {
+  background: #27ae60;
+  color: #fff;
+}
+
+td img {
+  width: 80px;
+  border-radius: 8px;
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  color: #c0392b;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+.cart-total {
+  text-align: right;
+  max-width: 1000px;
+  margin: 2rem auto;
+  font-size: 1.6rem;
+}
+
+.btn-pay {
+  background: #27ae60;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-pay:hover {
+  background: #219150;
+}
+
+.empty {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #777;
+}

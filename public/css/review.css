@@ -1,0 +1,224 @@
+/* === SECTION REVIEW === */
+.review {
+  padding: 6rem 2rem;
+  background: #f9f9f9;
+  font-family: "Nunito", sans-serif;
+}
+
+.review .sub-heading {
+  text-align: center;
+  color: #27ae60;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.review .heading {
+  text-align: center;
+  color: #192a56;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+}
+
+/* === LAYOUT DE LA SECTION === */
+.review-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start; /* ✅ alignement haut */
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- FORMULAIRE D’AJOUT D’AVIS --- */
+.review-left {
+  flex: 1 1 350px;
+  min-width: 300px;
+  max-width: 420px;
+  position: relative;
+  z-index: 2; /* ✅ pour rester visible au-dessus du swiper */
+}
+
+.review-form {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.review-form input[type="text"],
+.review-form input[type="email"],
+.review-form textarea,
+.review-form select {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  resize: none;
+}
+
+.review-form textarea {
+  min-height: 100px;
+}
+
+.review-form .btn {
+  background: #192a56;
+  color: #fff;
+  border: none;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.review-form .btn:hover {
+  background: #27ae60;
+}
+
+.success-msg {
+  color: #27ae60;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.error-msg {
+  color: #c0392b;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* --- CARROUSEL DES AVIS --- */
+.review-right {
+  flex: 2 1 600px;
+  min-width: 320px;
+  max-width: 800px;
+  position: relative;
+  z-index: 1;
+  overflow: visible !important; /* ✅ pour éviter que swiper ne masque le formulaire */
+}
+
+/* Swiper container */
+.swiper-container.review-slider {
+  width: 100%;
+  padding: 10px 0 40px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.swiper-wrapper {
+  align-items: stretch;
+}
+
+/* Slide individuelle */
+.swiper-slide.slide {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2.5rem;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-sizing: border-box;
+  min-height: 240px;
+  transition: transform 0.3s ease;
+}
+
+.swiper-slide.slide:hover {
+  transform: translateY(-5px);
+}
+
+/* Infos utilisateur */
+.swiper-slide .user {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.swiper-slide .user img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #eee;
+  border: 2px solid #f0f0f0;
+}
+
+.swiper-slide .user-info h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #192a56;
+  font-weight: 600;
+}
+
+.swiper-slide .stars {
+  margin-top: 4px;
+}
+
+.swiper-slide .stars i {
+  color: #27ae60;
+  font-size: 1.3rem;
+}
+
+/* Texte du commentaire */
+.swiper-slide p {
+  font-size: 1.5rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Icône citation */
+.swiper-slide .fa-quote-right {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2.5rem;
+  color: #ccc;
+}
+
+/* Pagination */
+.swiper-pagination-bullet {
+  background: #192a56;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #27ae60;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .review-wrap {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .review-left,
+  .review-right {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-form input,
+  .review-form textarea,
+  .review-form select {
+    font-size: 1.2rem;
+  }
+
+  .review-form .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .swiper-slide p {
+    font-size: 1.3rem;
+  }
+}

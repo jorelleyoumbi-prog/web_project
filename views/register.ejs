@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet"  href="/style.css">
+    <!--link pour le swipe sulla home-->
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <title>Cameroonian's Food</title>
+    <!--font awesome cdn link -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<!--sezione header-->
+<%- include('partials/header') %>
+
+
+<!-- Registration Form Section -->
+<section class="register" id="register">
+    <h3 class="sub-heading"> Join Us </h3>
+    <h1 class="heading"> Registration Form </h1>
+    
+    <% if (success) { %>
+    <div class="alert-box success">
+      <i class="fa-solid fa-circle-check"></i>
+      <span><%= success %></span>
+      <a href="/auth/login" class="btn-login-link">Go to Login</a>
+   </div>
+   <% } %>
+
+   <% if (error) { %>
+   <div class="alert-box error">
+     <i class="fa-solid fa-triangle-exclamation"></i>
+     <span><%= error %></span>
+   </div>
+   <% } %>
+
+
+    <form action="/auth/register" method="POST" class="registration-form">
+        <div class="inputBox">
+            <div class="input">
+                <span><i class="fas fa-user"></i> Full Name</span>
+                <input type="text" name="fullname" placeholder="e.g. Jorelle Mengaptche" required autocomplete="name" style="text-transform:none">
+            </div>
+            <div class="input">
+                <span><i class="fas fa-envelope"></i> Email</span>
+                <input type="email" name="email" placeholder="e.g. cameroonian@gmail.com" required autocomplete="email" style="text-transform:none">
+            </div>
+        </div>
+
+        <div class="inputBox">
+        <div class="input password-box">
+          <span><i class="fas fa-lock"></i> Password</span>
+           <div class="password-container">
+               <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="new-password" style="text-transform:none">
+               <span class="toggle-password" onclick="togglePassword('password', this)">
+                  <i class="fa-solid fa-eye"></i>
+               </span>
+            </div>
+        </div>
+
+        <div class="input password-box">
+           <span><i class="fas fa-lock"></i> Confirm Password</span>
+           <div class="password-container">
+              <input type="password" id="confirm_password" name="confirm_password" placeholder="Repeat your password" required autocomplete="new-password" style="text-transform:none">
+              <span class="toggle-password" onclick="togglePassword('confirm_password', this)">
+                <i class="fa-solid fa-eye"></i>
+               </span>
+            </div>
+           </div>
+        </div>
+
+
+        <div class="inputBox">
+            <div class="input">
+                <span><i class="fas fa-phone"></i> Phone Number</span>
+                <input type="tel" name="phone" placeholder="e.g. +39 123 456 7890" required autocomplete="tel">
+            </div>
+        </div>
+
+        <input type="submit" value="Register Now" class="btn">
+    </form>
+</section>
+
+<!-- Footer  -->
+<%- include('partials/footer') %>
+
+<!--custom js file link-->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="/script.js"></script>
+
+<script>
+function togglePassword(id, icon) {
+    const input = document.getElementById(id);
+    const eye = icon.querySelector('i');
+    if (input.type === 'password') {
+        input.type = 'text';
+        eye.classList.remove('fa-eye');
+        eye.classList.add('fa-eye-slash');
+    } else {
+        input.type = 'password';
+        eye.classList.remove('fa-eye-slash');
+        eye.classList.add('fa-eye');
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestione Ordini - Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    /*  STYLE ADMIN ORDERS */
+    body {
+      font-family: "Nunito", sans-serif;
+      background: #f5f6fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    section.admin-orders {
+      padding: 6rem 3rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1.heading {
+      text-align: center;
+      color: #192a56;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+    }
+
+    /* Table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    thead {
+      background: #27ae60;
+      color: #fff;
+    }
+
+    th, td {
+      padding: 1.2rem 1rem;
+      text-align: center;
+      font-size: 1.4rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      text-transform: uppercase;
+      letter-spacing: 0.05rem;
+    }
+
+    tr:hover {
+      background: #f1f2f6;
+    }
+
+    /* Buttons */
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-confirm,
+    .btn-delete {
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .btn-confirm {
+      background: #27ae60;
+    }
+
+    .btn-confirm:hover {
+      background: #219150;
+    }
+
+    .btn-delete {
+      background: #e74c3c;
+    }
+
+    .btn-delete:hover {
+      background: #c0392b;
+    }
+
+    .status {
+      font-weight: 600;
+      text-transform: capitalize;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      color: #fff;
+    }
+
+    .status.in_attesa {
+      background: #f39c12;
+    }
+
+    .status.confermato {
+      background: #27ae60;
+    }
+
+    .status.annullato {
+      background: #e74c3c;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      table {
+        font-size: 1.2rem;
+      }
+
+      th, td {
+        padding: 0.8rem;
+      }
+
+      h1.heading {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <%- include("../partials/admin-header") %>
+
+  <section class="admin-orders">
+    <h1 class="heading">Gestione Ordini</h1>
+
+    <% if (orders.length === 0) { %>
+      <p style="text-align:center; font-size:1.5rem; color:#666;">Nessun ordine trovato.</p>
+    <% } else { %>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Piatti</th>
+            <th>Quantità</th>
+            <th>Prezzo Totale</th>
+            <th>Data</th>
+            <th>Stato</th>
+            <th>Azioni</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% orders.forEach(o => { %>
+            <tr>
+              <td><%= o.id %></td>
+              <td><%= o.client_name %></td>
+              <td><%= o.dish_name %></td>
+              <td><%= o.quantity %></td>
+              <td>€<%= parseFloat(o.total_price || 0).toFixed(2) %></td>
+              <td><%= new Date(o.date_time).toLocaleString() %></td>
+              <td>
+                <span class="status <%= o.status %>">
+                  <%= o.status %>
+                </span>
+              </td>
+              <td class="actions">
+                <% if (o.status === 'in_attesa') { %>
+                  <form action="/admin/orders/confirm/<%= o.id %>" method="POST">
+                    <button class="btn-confirm">
+                      <i class="fa-solid fa-check"></i> Conferma
+                    </button>
+                  </form>
+                <% } %>
+                <form action="/admin/orders/delete/<%= o.id %>" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare questo ordine?');">
+                  <button class="btn-delete">
+                    <i class="fa-solid fa-trash"></i> Elimina
+                  </button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </section>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>
