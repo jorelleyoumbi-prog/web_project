@@ -1,0 +1,1 @@
+Questo progetto rappresenta un sito web per un ristorante camerunense che Include funzionalità per la gestione di menu, ordini, recensioni, e prenotazioni, con aree dedicate per utenti e amministratori.
